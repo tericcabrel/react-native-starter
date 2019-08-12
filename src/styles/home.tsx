@@ -3,21 +3,21 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff"
   },
   content: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     padding: 15
   },
   modalMenu: {
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
     margin: 0
   },
   modalMenuContainer: {
     height: 300,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 20
   }
 });

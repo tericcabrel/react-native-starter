@@ -1,8 +1,5 @@
-import {
-  FETCH_COUNTRIES,
-  RESET_COUNTRIES, SET_LOCALE,
-} from './actionTypes';
-import { getCurrentLocale } from '../../utils/i18n';
+import { FETCH_COUNTRIES, RESET_COUNTRIES, SET_LOCALE } from "./actionTypes";
+import { getCurrentLocale } from "../../utils/i18n";
 
 const initialState = {
   locale: getCurrentLocale(),

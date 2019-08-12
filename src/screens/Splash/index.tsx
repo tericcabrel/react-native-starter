@@ -1,10 +1,10 @@
-import React from 'react';
-import { View, StatusBar, ActivityIndicator } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+import React from "react";
+import { View, StatusBar, ActivityIndicator } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 
-import { USER_STORAGE_KEY } from '../../utils/constants';
+import { USER_STORAGE_KEY } from "../../utils/constants";
 
-import { styles } from '../../styles/splash';
+import { styles } from "../../styles/splash";
 
 class Splash extends React.Component<any> {
   constructor(props: any) {
@@ -13,8 +13,8 @@ class Splash extends React.Component<any> {
 
   async componentWillMount() {
     const userToken = await AsyncStorage.getItem(USER_STORAGE_KEY);
-    console.log('userToken', userToken);
-    this.props.navigation.navigate(!userToken ? 'App' : 'Auth');
+    console.log("userToken", userToken);
+    this.props.navigation.navigate(!userToken ? "App" : "Auth");
   }
 
   render() {

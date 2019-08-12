@@ -1,21 +1,28 @@
-import React from 'react';
-import { View, Text, SafeAreaView, TouchableHighlight, FlatList, Picker } from 'react-native';
-import { Button, Header, ListItem } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Modal from 'react-native-modal';
-import { connect } from 'react-redux';
+import React from "react";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TouchableHighlight,
+  FlatList,
+  Picker
+} from "react-native";
+import { Button, Header, ListItem } from "react-native-elements";
+import Icon from "react-native-vector-icons/FontAwesome";
+import Modal from "react-native-modal";
+import { connect } from "react-redux";
 
-import { LOCALES, MENU_IDS, MENU_ITEMS } from '../../utils/constants';
-import { LocaleItemData, MenuItemData } from '../../utils/types';
-import { setLocale } from '../../store/app/actions';
-import translate from '../../utils/i18n';
+import { LOCALES, MENU_IDS, MENU_ITEMS } from "../../utils/constants";
+import { LocaleItemData, MenuItemData } from "../../utils/types";
+import { setLocale } from "../../store/app/actions";
+import translate from "../../utils/i18n";
 
-import { styles } from '../../styles/home';
+import { styles } from "../../styles/home";
 
 interface IHomeProps {
   locale: string;
   setLocale: (locale: string) => {};
-  navigation: any
+  navigation: any;
 }
 
 interface IHomeStates {
@@ -28,8 +35,8 @@ class Home extends React.Component<IHomeProps, IHomeStates> {
     super(props);
     this.state = {
       isMenuModalVisible: false,
-      isLocaleSelectVisible: false,
-    }
+      isLocaleSelectVisible: false
+    };
   }
 
   toggleModalMenu(value: boolean) {
@@ -53,11 +60,11 @@ class Home extends React.Component<IHomeProps, IHomeStates> {
         // TODO Got to about
         break;
       default:
-
     }
     this.toggleModalMenu(false);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   keyExtractor = (item: MenuItemData, index: number) => item.id;
 
   renderItem = ({ item }: { item: MenuItemData }) => (
@@ -65,43 +72,45 @@ class Home extends React.Component<IHomeProps, IHomeStates> {
       title={translate(item.name)}
       leftIcon={{
         name: item.icon,
-        color: '#000'
+        color: "#000"
       }}
       onPress={() => this.handleMenu(item)}
     />
   );
 
-  changeLocale(locale: string) {
+  changeLocale(locale: string, index: number) {
+    console.log(index);
     this.props.setLocale(locale);
     this.toggleLocaleSelect(false);
-    console.log('Locale changed !');
   }
 
   render() {
     const { isMenuModalVisible, isLocaleSelectVisible } = this.state;
 
     return (
-      <View style={styles.container} >
+      <View style={styles.container}>
         <Header
-          centerComponent={{ text: translate('home.title'), style: { color: '#fff' } }}
+          centerComponent={{
+            text: translate("home.title"),
+            style: { color: "#fff" }
+          }}
           rightComponent={
-            <TouchableHighlight onPress={() => this.toggleModalMenu(true)} style={{ marginRight: 15 }}>
+            <TouchableHighlight
+              onPress={() => this.toggleModalMenu(true)}
+              style={{ marginRight: 15 }}
+            >
               <Icon name="ellipsis-v" size={16} color="white" />
             </TouchableHighlight>
           }
         />
         <View style={styles.content}>
           <Button
-            icon={
-              <Icon
-                name="arrow-left"
-                size={16}
-                color="white"
-              />
-            }
-            title={translate('home.btn_login')}
-            containerStyle={{ width: '100%' }}
-            onPress={() => {  this.props.navigation.navigate('Login'); }}
+            icon={<Icon name="arrow-left" size={16} color="white" />}
+            title={translate("home.btn_login")}
+            containerStyle={{ width: "100%" }}
+            onPress={() => {
+              this.props.navigation.navigate("Login");
+            }}
           />
         </View>
 
@@ -112,7 +121,7 @@ class Home extends React.Component<IHomeProps, IHomeStates> {
           backdropTransitionInTiming={500}
           backdropTransitionOutTiming={500}
           onSwipeComplete={() => this.toggleModalMenu(!isMenuModalVisible)}
-          swipeDirection={['down']}
+          swipeDirection={["down"]}
           style={styles.modalMenu}
         >
           <SafeAreaView>
@@ -129,26 +138,29 @@ class Home extends React.Component<IHomeProps, IHomeStates> {
           </SafeAreaView>
         </Modal>
 
-        {
-          isLocaleSelectVisible &&
+        {isLocaleSelectVisible && (
           <Picker
             selectedValue={this.props.locale}
-            style={{height: 300}}
-            onValueChange={(itemValue, itemIndex) => this.changeLocale(itemValue)}
-          >
-            {
-              LOCALES.map((localeItem: LocaleItemData, index: number) => (
-                <Picker.Item key={index} label={translate(localeItem.name)} value={localeItem.id} />
-              ))
+            style={{ height: 300 }}
+            onValueChange={(itemValue, itemIndex) =>
+              this.changeLocale(itemValue, itemIndex)
             }
+          >
+            {LOCALES.map((localeItem: LocaleItemData, index: number) => (
+              <Picker.Item
+                key={index}
+                label={translate(localeItem.name)}
+                value={localeItem.id}
+              />
+            ))}
           </Picker>
-        }
+        )}
       </View>
     );
   }
 }
 
-const mapStateToProps = ({ app }: { [any: string]: any}) => ({
+const mapStateToProps = ({ app }: { [any: string]: any }) => ({
   locale: app.locale
 });
 
@@ -158,6 +170,5 @@ const mapDispatchToProps = (dispatch: any) => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Home);
-

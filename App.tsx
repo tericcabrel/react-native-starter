@@ -8,13 +8,14 @@
  * @format
  */
 
-import React from 'react';
+import React from "react";
+import { Provider } from "react-redux";
 
+import Icon from "react-native-vector-icons/FontAwesome";
+import MaterialIcon from "react-native-vector-icons/MaterialIcons";
+
+import store from "./src/store";
 import AppNavigator from "./src/navigations/main";
-import Icon from 'react-native-vector-icons/FontAwesome'
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
-import { Provider } from 'react-redux';
-import store from './src/store';
 
 Icon.loadFont();
 MaterialIcon.loadFont();

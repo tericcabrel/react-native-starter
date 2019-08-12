@@ -1,7 +1,7 @@
-import i18n from 'i18n-js';
+import i18n from "i18n-js";
 
-import en from '../locales/en';
-import fr from '../locales/fr';
+import en from "../locales/en";
+import fr from "../locales/fr";
 import { LOCALE_IDS } from "./constants";
 
 i18n.defaultLocale = LOCALE_IDS.english;
