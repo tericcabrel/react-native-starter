@@ -11,14 +11,8 @@
 import React from "react";
 import { Provider } from "react-redux";
 
-import Icon from "react-native-vector-icons/FontAwesome";
-import MaterialIcon from "react-native-vector-icons/MaterialIcons";
-
 import store from "./src/store";
 import AppNavigator from "./src/navigations/main";
-
-Icon.loadFont();
-MaterialIcon.loadFont();
 
 export default function App() {
   return (

@@ -1,1 +1,1 @@
-# react-native-starter
+# React Native Boilerplate Starter App

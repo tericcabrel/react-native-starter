@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'gilleva' do
-  # Pods for gilleva
+target 'react-native-starter-app' do
+  # Pods for react-native-starter-app
   pod 'React', :path => '../node_modules/react-native/'
   pod 'React-Core', :path => '../node_modules/react-native/React'
   pod 'React-DevSupport', :path => '../node_modules/react-native/React'
@@ -28,9 +28,7 @@ target 'gilleva' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-
-
-  target 'gillevaTests' do
+  target 'react-native-starter-appTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -38,10 +36,10 @@ target 'gilleva' do
   use_native_modules!
 end
 
-target 'gilleva-tvOS' do
-  # Pods for gilleva-tvOS
+target 'react-native-starter-app-tvOS' do
+  # Pods for react-native-starter-app-tvOS
 
-  target 'gilleva-tvOSTests' do
+  target 'react-native-starter-app-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
