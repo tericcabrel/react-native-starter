@@ -11,9 +11,8 @@ class Splash extends React.Component<any> {
     super(props);
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     const userToken = await AsyncStorage.getItem(USER_STORAGE_KEY);
-    console.log("userToken", userToken);
     this.props.navigation.navigate(!userToken ? "App" : "Auth");
   }
 

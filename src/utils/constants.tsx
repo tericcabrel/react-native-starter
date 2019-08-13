@@ -1,6 +1,8 @@
 import { MenuItemData } from "./types";
 
-export const USER_STORAGE_KEY = "usr_token";
+export const USER_STORAGE_KEY = "user_token";
+export const STATUS_BAR_HEIGHT = 20;
+export const SAFE_VIEW_AREA_HEIGHT = 44;
 
 export enum MENU_IDS {
   profile = "profile",
