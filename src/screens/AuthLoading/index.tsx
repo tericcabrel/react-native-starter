@@ -6,14 +6,14 @@ import { USER_STORAGE_KEY } from "../../utils/constants";
 
 import { styles } from "../../styles/splash";
 
-class Splash extends React.Component<any> {
+class AuthLoading extends React.Component<any> {
   constructor(props: any) {
     super(props);
   }
 
   async componentDidMount() {
     const userToken = await AsyncStorage.getItem(USER_STORAGE_KEY);
-    this.props.navigation.navigate(!userToken ? "App" : "Auth");
+    this.props.navigation.navigate(userToken ? "App" : "Onboarding");
   }
 
   render() {
@@ -26,4 +26,4 @@ class Splash extends React.Component<any> {
   }
 }
 
-export default Splash;
+export default AuthLoading;
