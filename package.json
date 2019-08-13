@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.1",
+    "@types/tinycolor2": "^1.4.2",
     "axios": "^0.19.0",
     "i18n-js": "^3.3.0",
     "react": "16.8.6",
@@ -24,7 +25,8 @@
     "redux": "^4.0.4",
     "redux-dynamic-middlewares": "^1.0.0",
     "redux-promise-middleware": "^6.1.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

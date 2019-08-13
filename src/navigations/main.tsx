@@ -7,6 +7,9 @@ import {
 // Splash screen
 import SplashScreen from "../screens/Splash";
 
+// Onboarding screen
+import OnboardingScreen from "../screens/Starter";
+
 // Auth screen
 import LoginScreen from "../screens/Login";
 import RegisterScreen from "../screens/Register";
@@ -48,11 +51,12 @@ export default createAppContainer(
   createSwitchNavigator(
     {
       Splash: SplashScreen,
+      Onboarding: OnboardingScreen,
       Auth: AuthStack,
       App: AppStack
     },
     {
-      initialRouteName: "Splash"
+      initialRouteName: "Onboarding"
     }
   )
 );
