@@ -14,6 +14,7 @@ export default {
     btn_login: " Go to login"
   },
   locale: {
+    title: 'Language',
     english: "English",
     french: "French"
   },
@@ -21,5 +22,13 @@ export default {
     profile: "Profile",
     language: "Language",
     about: "About"
+  },
+  settings: {
+    title: 'Settings',
+    notification: 'Notifications',
+    terms: 'Terms & Conditions',
+    privacy: 'Privacy Policy',
+    help: 'Help Center',
+    about: 'About Us'
   }
 };
