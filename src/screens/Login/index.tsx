@@ -1,7 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { Header, Button } from "react-native-elements";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { Header, Button, Icon } from "react-native-elements";
 import { connect } from "react-redux";
 
 import { fetchCountries } from "../../store/app/actions";
@@ -23,7 +22,7 @@ class Login extends React.Component<any> {
     return (
       <View style={styles.container}>
         <Header
-          leftComponent={<Icon name="lock" size={16} color="white" />}
+          leftComponent={<Icon name="lock" size={16} color="white" type="font-awesome" />}
           centerComponent={{
             text: translate("login.title"),
             style: { color: "#fff" }
@@ -31,7 +30,7 @@ class Login extends React.Component<any> {
         />
         <View style={styles.content}>
           <Button
-            icon={<Icon name="arrow-right" size={16} color="white" />}
+            icon={<Icon name="arrow-right" size={16} color="white" type="font-awesome"  />}
             title={translate("login.btn_register")}
             containerStyle={{ width: "100%", marginBottom: 15 }}
             onPress={() => {

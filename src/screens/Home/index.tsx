@@ -7,8 +7,7 @@ import {
   FlatList,
   Picker
 } from "react-native";
-import { Button, Header, ListItem } from "react-native-elements";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { Button, Header, ListItem, Icon } from "react-native-elements";
 import Modal from "react-native-modal";
 import { connect } from "react-redux";
 
@@ -99,13 +98,13 @@ class Home extends React.Component<IHomeProps, IHomeStates> {
               onPress={() => this.toggleModalMenu(true)}
               style={{ marginRight: 15 }}
             >
-              <Icon name="ellipsis-v" size={16} color="white" />
+              <Icon name="ellipsis-v" size={16} color="white" type="font-awesome" />
             </TouchableHighlight>
           }
         />
         <View style={styles.content}>
           <Button
-            icon={<Icon name="arrow-left" size={16} color="white" />}
+            icon={<Icon name="arrow-left" size={16} color="white" type="font-awesome"/>}
             title={translate("home.btn_login")}
             containerStyle={{ width: "100%" }}
             onPress={() => {

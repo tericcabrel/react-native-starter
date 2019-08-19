@@ -1,7 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { Button, Header } from "react-native-elements";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { Button, Header, Icon } from "react-native-elements";
 
 import translate from "../../utils/i18n";
 
@@ -16,7 +15,7 @@ class Register extends React.Component<any> {
     return (
       <View style={styles.container}>
         <Header
-          leftComponent={<Icon name="pencil" size={16} color="white" />}
+          leftComponent={<Icon name="pencil" size={16} color="white" type="font-awesome" />}
           centerComponent={{
             text: translate("register.title"),
             style: { color: "#fff" }
@@ -24,7 +23,7 @@ class Register extends React.Component<any> {
         />
         <View style={styles.content}>
           <Button
-            icon={<Icon name="arrow-left" size={16} color="white" />}
+            icon={<Icon name="arrow-left" size={16} color="white" type="font-awesome" />}
             title={translate("register.btn_login")}
             containerStyle={{ width: "100%" }}
             onPress={() => {
