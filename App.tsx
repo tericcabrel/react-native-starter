@@ -16,9 +16,11 @@ import AppNavigator from "./src/navigations/main";
 
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 FontAwesomeIcon.loadFont();
 MaterialIcon.loadFont();
+Ionicons.loadFont();
 
 export default function App() {
   return (

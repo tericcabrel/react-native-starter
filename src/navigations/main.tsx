@@ -3,7 +3,7 @@ import {
   createSwitchNavigator,
   createStackNavigator,
   createAppContainer,
-  createBottomTabNavigator
+  createBottomTabNavigator, createDrawerNavigator
 } from "react-navigation";
 import { Icon } from "react-native-elements";
 
@@ -20,6 +20,9 @@ import RegisterScreen from "../screens/Register";
 // App screen
 import HomeScreen from "../screens/Home";
 import SettingsScreen from "../screens/Settings";
+
+
+
 
 const HomeStack = createStackNavigator(
   {
@@ -80,13 +83,23 @@ const AuthStack = createStackNavigator(
   }
 );
 
+const AppDrawer = createDrawerNavigator({
+  Home: {
+    screen: AppStack,
+
+  },
+  Setting: {
+    screen : SettingsScreen
+  }
+});
+
 export default createAppContainer(
   createSwitchNavigator(
     {
       AuthLoading: AuthLoadingScreen,
       Onboarding: OnboardingScreen,
       Auth: AuthStack,
-      App: AppStack
+      App: AppDrawer
     },
     {
       initialRouteName: "App"
