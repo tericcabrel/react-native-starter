@@ -72,10 +72,7 @@ const AuthStack = createStackNavigator(
       })
     },
     Login: {
-      screen: LoginScreen,
-      navigationOptions: () => ({
-        header: null
-      })
+      screen: LoginScreen
     }
   },
   {
@@ -102,7 +99,7 @@ export default createAppContainer(
       App: AppDrawer
     },
     {
-      initialRouteName: "App"
+      initialRouteName: "Auth"
     }
   )
 );
