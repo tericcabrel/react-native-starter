@@ -10,7 +10,7 @@ export default {
     btn_country: "Fetch countries"
   },
   home: {
-    title: "HOME",
+    title: "Home",
     btn_login: " Go to login"
   },
   locale: {

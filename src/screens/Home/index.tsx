@@ -3,25 +3,25 @@ import {
   View,
   Text,
   SafeAreaView,
-  TouchableHighlight,
   FlatList,
   Picker
 } from "react-native";
-import { Button, Header, ListItem, Icon } from "react-native-elements";
+import { Button, ListItem, Icon } from "react-native-elements";
 import Modal from "react-native-modal";
 import { connect } from "react-redux";
+import { NavigationScreenProp } from "react-navigation";
 
 import { LOCALES, MENU_IDS, MENU_ITEMS } from "../../utils/constants";
 import { LocaleItemData, MenuItemData } from "../../utils/types";
 import { setLocale } from "../../store/app/actions";
 import translate from "../../utils/i18n";
 
-import { styles } from "../../styles/home";
+import styles from "../../styles/home";
 
 interface IHomeProps {
   locale: string;
   setLocale: (locale: string) => {};
-  navigation: any;
+  navigation: NavigationScreenProp<any, any>;
 }
 
 interface IHomeStates {
@@ -30,6 +30,10 @@ interface IHomeStates {
 }
 
 class Home extends React.Component<IHomeProps, IHomeStates> {
+  static navigationOptions = {
+    title: translate('home.title')
+  };
+
   constructor(props: any) {
     super(props);
     this.state = {
@@ -63,7 +67,6 @@ class Home extends React.Component<IHomeProps, IHomeStates> {
     this.toggleModalMenu(false);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   keyExtractor = (item: MenuItemData, index: number) => item.id;
 
   renderItem = ({ item }: { item: MenuItemData }) => (
@@ -88,20 +91,6 @@ class Home extends React.Component<IHomeProps, IHomeStates> {
 
     return (
       <View style={styles.container}>
-        <Header
-          centerComponent={{
-            text: translate("home.title"),
-            style: { color: "#fff" }
-          }}
-          rightComponent={
-            <TouchableHighlight
-              onPress={() => this.toggleModalMenu(true)}
-              style={{ marginRight: 15 }}
-            >
-              <Icon name="ellipsis-v" size={16} color="white" type="font-awesome" />
-            </TouchableHighlight>
-          }
-        />
         <View style={styles.content}>
           <Button
             icon={<Icon name="arrow-left" size={16} color="white" type="font-awesome"/>}
