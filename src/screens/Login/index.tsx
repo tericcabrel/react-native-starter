@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import { Button, Text, Icon } from "react-native-elements";
 import { connect } from "react-redux";
 
@@ -23,94 +23,119 @@ class Login extends React.Component<any> {
   render() {
     return (
       <View style={styles.container}>
-        <View>
-          <Icon
-            type='ionicon'
-            name='logo-playstation'
-            size={96}
-            color={colors.black}
-            containerStyle={{
-              height: 100,
-              width: 100,
-              backgroundColor: colors.white,
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-          />
-        </View>
-        <View style={styles.content}>
-          {/* <Button
-            icon={<Icon name="arrow-right" size={16} color="white" type="font-awesome"  />}
-            title={translate("login.btn_register")}
-            containerStyle={{ width: "100%", marginBottom: 15 }}
-            onPress={() => {
-              this.props.navigation.navigate("Register");
-            }}
-          />
-          <Button
-            title={translate("login.btn_home")}
-            containerStyle={{ width: "100%", marginBottom: 15 }}
-            onPress={() => {
-              this.props.navigation.navigate("App");
-            }}
-          />
-          <Button
-            title={translate("login.btn_country")}
-            containerStyle={{ width: "100%" }}
-            onPress={() => {
-              this.fetchCountries();
-            }}
-            loading={this.props.loading}
-          />*/}
-          <View style={{ marginTop: 40 }}>
-            <Text style={{fontSize: 32, fontWeight: "bold", marginBottom: 15}}>Welcome Back!</Text>
-            <Text style={{fontSize: 15 }}>Sign in to continue</Text>
-          </View>
-          <View style={styles.formContent}>
-            <Input
-              placeholder='Email'
-              leftIcon={
-                <Icon
-                  type="font-awesome"
-                  name='envelope'
-                  size={24}
-                  color='black'
-                />
-              }
-             value=""/>
-            <Input
-              placeholder='Password'
-              secureText={true}
-              value=""
-              leftIcon={
-                <Icon
-                  type="font-awesome"
-                  name='lock'
-                  size={24}
-                  color='black'
-                />
-              }
-              rightIcon={
-                <Icon
-                  type="font-awesome"
-                  name='eye-slash'
-                  size={24}
-                  color='black'
-                />
-              }
+          <View>
+            <Icon
+              type='ionicon'
+              name='logo-playstation'
+              size={96}
+              color={colors.black}
+              containerStyle={styles.logoContainer}
             />
-            <Text style={{textAlign: "right"}}>Forgot password?</Text>
+          </View>
+          <View style={styles.content}>
+            <View style={ styles.headerTextContainer }>
+              <Text style={styles.headerMainText}>Welcome Back!</Text>
+              <Text style={styles.headerSecondaryText}>Sign in to continue</Text>
+            </View>
+            <View style={styles.formContent}>
+              <Input
+                placeholder='Email'
+                leftIcon={
+                  <Icon
+                    type="font-awesome"
+                    name='envelope'
+                    size={16}
+                    color='black'
+                  />
+                }
+                value=""
+                containerStyle={{ borderColor: 'red' }}/>
+              <Input
+                placeholder='Password'
+                secureText={true}
+                value=""
+                leftIcon={
+                  <Icon
+                    type="font-awesome"
+                    name='lock'
+                    size={20}
+                    color='black'
+                  />
+                }
+                rightIcon={
+                  <Icon
+                    type="font-awesome"
+                    name='eye-slash'
+                    size={16}
+                    color='black'
+                  />
+                }
+              />
+              <Text style={styles.forgotPasswordText}>Forgot password?</Text>
 
-            <Button
-              title="SIGN IN"
-              containerStyle={{ width: "100%", marginTop: 40, marginBottom: 15 }}
-              buttonStyle={{ backgroundColor: colors.black }}
-              onPress={() => {
-                this.props.navigation.navigate("App");
-              }}
-            />
+              <Button
+                title="SIGN IN"
+                containerStyle={styles.signInButtonContainer}
+                buttonStyle={{ backgroundColor: colors.black }}
+                onPress={() => {
+                  this.props.navigation.navigate("App");
+                }}
+              />
+            </View>
+            <View>
+              <Text style={styles.formExtraText}>or login with</Text>
+              <View style={styles.socialLoginContainer}>
+                <View style={styles.socialLoginContent}>
+                  <Button
+                    type="outline"
+                    icon={
+                      <Icon
+                        type="evilicon"
+                        name='sc-facebook'
+                        size={32}
+                        color='#1877f2'
+                      />
+                    }
+                    buttonStyle={styles.socialButtonContainer}
+                  />
+                  <Button
+                    type="outline"
+                    icon={
+                      <Icon
+                        type="font-awesome"
+                        name='google'
+                        size={24}
+                        color='#ef4138'
+                      />
+                    }
+                    buttonStyle={styles.socialButtonContainer}
+                  />
+                  <Button
+                    type="outline"
+                    icon={
+                      <Icon
+                        type="font-awesome"
+                        name='twitter'
+                        size={28}
+                        color='#26a4ef'
+                      />
+                    }
+                    buttonStyle={styles.socialButtonContainer}
+                  />
+                </View>
+              </View>
+              <View style={styles.signUpContent}>
+                <Text style={styles.signUpText}>Don't have an account? </Text>
+                <TouchableOpacity
+                  onPress={ () => {
+                    this.props.navigation.navigate("Register");
+                  }}
+                >
+                  <Text style={styles.signUpLink}> SIGN UP!</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
-        </View>
       </View>
     );
   }
