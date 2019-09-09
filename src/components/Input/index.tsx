@@ -31,11 +31,11 @@ const styles = StyleSheet.create({
 
 const Input: React.StatelessComponent<IInputProps> = ({
                                                         label, value, errorMessage, secureText, onChangeText, hasError,
-  placeholder, leftIcon, rightIcon
+  placeholder, leftIcon, rightIcon, containerStyle
                                                       }) => {
   return (
     <NativeInput
-      containerStyle={styles.containerStyle}
+      containerStyle={[styles.containerStyle, containerStyle]}
       leftIconContainerStyle={{ marginLeft: 0, marginRight: 3, width: 32}}
       rightIconContainerStyle={{ width: 32}}
       inputContainerStyle={[styles.inputContainerStyle, hasError ? { borderColor: colors.brand.failure } : {}]}

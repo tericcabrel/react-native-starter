@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, View } from "react-native";
+import {SafeAreaView, TouchableOpacity, View} from "react-native";
 import { Button, Text, Icon } from "react-native-elements";
 import { connect } from "react-redux";
 
@@ -23,6 +23,7 @@ class Login extends React.Component<any> {
   render() {
     return (
       <View style={styles.container}>
+        <SafeAreaView style={{ flex: 1}}>
           <View>
             <Icon
               type='ionicon'
@@ -49,7 +50,7 @@ class Login extends React.Component<any> {
                   />
                 }
                 value=""
-                containerStyle={{ borderColor: 'red' }}/>
+              />
               <Input
                 placeholder='Password'
                 secureText={true}
@@ -136,6 +137,7 @@ class Login extends React.Component<any> {
               </View>
             </View>
           </View>
+        </SafeAreaView>
       </View>
     );
   }
