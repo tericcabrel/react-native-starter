@@ -9,8 +9,18 @@ import translate from "../../utils/i18n";
 import { styles } from "../../styles/login";
 import colors from "../../styles/colors";
 import Input from "../../components/Input";
+import {NavigationScreenDetails} from "react-navigation";
 
-class Login extends React.Component<any> {
+interface ILoginProps extends NavigationScreenDetails<Login> {
+  loading: boolean,
+  countries: object[],
+  fetchCountries: () => Promise<void>
+}
+
+interface ILoginState {
+
+}
+class Login extends React.Component<ILoginProps, ILoginState> {
   constructor(props: any) {
     super(props);
   }
@@ -18,6 +28,7 @@ class Login extends React.Component<any> {
   async fetchCountries() {
     await this.props.fetchCountries();
     console.log("Countries => ", this.props.countries);
+    this.props.navigation.navigate("App");
   }
 
   render() {
@@ -78,9 +89,8 @@ class Login extends React.Component<any> {
                 title="SIGN IN"
                 containerStyle={styles.signInButtonContainer}
                 buttonStyle={{ backgroundColor: colors.black }}
-                onPress={() => {
-                  this.props.navigation.navigate("App");
-                }}
+                onPress={this.fetchCountries}
+                loading={this.props.loading}
               />
             </View>
             <View>
